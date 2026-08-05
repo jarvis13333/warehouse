@@ -41,6 +41,38 @@ https://github.com/user-attachments/assets/dea7c81c-61bc-49a5-b499-efe144cb284e
 
 
 ---
+## 📁 Project Structure
+
+```text
+warehouse/
+├── config.php                 # DB credentials & base_url
+├── index.php                  # Root redirect → public/login.php
+├── db/                        # Database layer
+│   ├── connection.php         # PDO connection
+│   └── rebuild_full_en.sql    # Schema + English demo data
+├── lib/                       # PHP helpers
+│   ├── auth.php               # Login, roles, password helpers
+│   ├── utils.php              # Escape, redirect, base_url, etc.
+│   └── icons.php              # Inline SVG icons
+├── public/                    # Web entry (document root)
+│   ├── index.php              # Front controller / page router
+│   ├── login.php              # Sign-in page
+│   ├── logout.php             # Sign-out
+│   └── styles.css             # UI styles
+├── routes/                    # Page handlers
+│   ├── dashboard.php          # Admin overview & low stock
+│   ├── items.php              # Item CRUD
+│   ├── movements.php          # Stock IN / OUT
+│   ├── reports.php            # Movement reports
+│   ├── users.php              # User management (admin)
+│   ├── profile.php            # Change password
+│   └── view.php               # Item detail
+└── templates/                 # Shared layout
+    ├── header.php
+    ├── nav.php
+    └── footer.php
+```
+
 ## 🖼️ Project Screenshots
 
 <table border="0">
