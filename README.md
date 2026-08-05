@@ -29,7 +29,59 @@ A full-featured Warehouse Management System built with PHP and MySQL to streamli
 | 🛠️ Local Dev | XAMPP (Apache + MySQL + phpMyAdmin) |
 
 ---
+## 🚀 Quick Start
 
+### 1. Requirements
+
+- PHP 7.4+ (8.x recommended)
+- MySQL 5.7+ / MariaDB
+- Apache (XAMPP recommended for local use)
+
+### 2. Install
+
+1. Place the project under your web root, e.g. `C:\xampp\htdocs\warehouse`
+
+2. Create / import the database:
+
+   ```bash
+   # Local XAMPP — create DB first, then import
+   mysql -u root -e "CREATE DATABASE IF NOT EXISTS warehouse_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+   mysql -u root warehouse_db < db/rebuild_full_en.sql
+   ```
+
+   On cPanel / shared hosting, create a MySQL database in cPanel, then select it in phpMyAdmin and import `db/rebuild_full_en.sql`.
+
+3. Edit credentials in `config.php` if needed:
+
+   ```php
+   return [
+       'db' => [
+           'host' => 'localhost',
+           'name' => 'warehouse_db',
+           'user' => 'root',
+           'pass' => '',
+           'charset' => 'utf8mb4',
+       ],
+       'base_url' => '/warehouse/public',
+   ];
+   ```
+
+4. Start Apache and MySQL (XAMPP Control Panel).
+
+5. Open `http://localhost/warehouse` and sign in.
+
+### 3. Default Accounts
+
+| Username | Role  | Password    |
+| --- | --- | --- |
+| `admin`  | Admin | `admin123`  |
+| `user`   | User  | `user123`   |
+
+> Change these passwords after first login in production.
+
+> ⚠️ Importing `db/rebuild_full_en.sql` **drops** existing tables and reloads demo data.
+
+---
 ## 🎬 Project Walkthrough
 
 One video covering the full system — setup, login, inventory, stock movements, reports, and admin features:
